@@ -4,9 +4,8 @@ import { csfd } from 'node-csfd-api';
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.contentScriptQuery === 'fetchData') {
-    console.log('back');
     csfd
-      .search(request.movieName)
+      .search(request.searchQuery)
       .then((response) => {
         if (response) {
           return response;

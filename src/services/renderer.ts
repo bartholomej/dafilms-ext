@@ -18,7 +18,7 @@ export default class Renderer {
   /**
    * Assemble box, wrapper and put it on the right place
    */
-  public renderBox(movie: CSFDSearchMovie, movieName: string): HTMLLIElement {
+  public renderBox(movie: CSFDSearchMovie, movieName: string, year: string): HTMLLIElement {
     const placingNode = document.querySelector('.film-access ul li');
     const wrapper = document.createElement('li');
     wrapper.classList.add('dafilms-ext');
@@ -38,7 +38,7 @@ export default class Renderer {
     `;
     } else {
       box = `
-      <a href="//new.csfd.cz/hledat/?q=${movieName}" target="_blank" class="btn btn-success rating rating-unknown">
+      <a href="//new.csfd.cz/hledat/?q=${movieName} ${year}" target="_blank" class="btn btn-success rating rating-unknown">
         ${devFlag} ${_('csfd')} ${_('search')}
       </a>
     `;
