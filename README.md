@@ -1,4 +1,3 @@
-[![Join the chat at https://gitter.im/dafilms-ext/Lobby](https://badges.gitter.im/dafilms-ext/Lobby.svg)](https://gitter.im/dafilms-ext/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![taylor swift](https://img.shields.io/badge/secured%20by-taylor%20swift-brightgreen.svg)](https://twitter.com/SwiftOnSecurity)
 [![volkswagen status](https://auchenberg.github.io/volkswagen/volkswargen_ci.svg?v=1)](https://github.com/auchenberg/volkswagen)
 
@@ -10,13 +9,13 @@
 
 A picture is worth a thousand words.
 
-![Screenshot](https://raw.githubusercontent.com/bartholomej/dafilms-ext/master/_assets/dafilms-ext-promo.png)
+![Screenshot](https://raw.githubusercontent.com/bartholomej/dafilms-ext/master/_assets/dafilms-promo.png)
 
 ## Installation
 
 ### Automatically (for humans)
 
-- **[Install for Chrome](https://chrome.google.com/webstore/detail/dafilms-ext/TODO)** from official **Chrome Web Store**
+- **[Install for Chrome](https://chrome.google.com/webstore/detail/daflims/hgcgneddmgflnbmhkjnefiobjgobbmdm)** from official **Chrome Web Store**
 - Firefox, Opera, Edge ... coming soon
 
 ### Manually (for ~~robots~~ developers)
