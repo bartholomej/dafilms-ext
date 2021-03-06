@@ -3,11 +3,7 @@
 
 # Dafilms extension
 
-> Simple Chrome extension for Dafilms _[(Doc Alliance)](dafilms.cz)_
-
-**Dafilms extension** adds a small button within each **movie detail** to show information about **ČSFD** rating...
-
-A picture is worth a thousand words.
+> Simple Chrome extension for **Dafilms** _[(Doc Alliance)](https://dafilms.cz)_ which adds a small button within each **movie detail** to show information about **ČSFD** rating
 
 ![Screenshot](https://raw.githubusercontent.com/bartholomej/dafilms-ext/master/_assets/dafilms-promo.png)
 
