@@ -2,15 +2,15 @@ import { BrowserConfig } from '../src/interfaces/interfaces';
 
 export const browserConfig: BrowserConfig = {
   chrome: {
-    repoUrl: 'https://chrome.google.com/webstore/detail/dafilms/TODO'
+    repoUrl: 'https://chrome.google.com/webstore/detail/daflims/hgcgneddmgflnbmhkjnefiobjgobbmdm'
   },
   edge: {
-    repoUrl: 'https://microsoftedge.microsoft.com/addons/detail/TODO'
+    repoUrl: ''
   },
   firefox: {
-    repoUrl: 'https://addons.mozilla.org/en-US/firefox/addon/dafilms/'
+    repoUrl: ''
   },
   opera: {
-    repoUrl: 'https://addons.opera.com/en/extensions/details/dafilms/'
+    repoUrl: ''
   }
 };
