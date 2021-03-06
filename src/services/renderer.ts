@@ -34,7 +34,7 @@ export default class Renderer {
         target="_blank" 
         title="${movie.title}" 
         class="btn btn-success rating rating-${movie.colorRating}">
-          ${devFlag} ${_('csfd')} ${movie.rating} %
+          ${devFlag} ${_('csfd')} ${movie.rating ? movie.rating : '?'} %
       </a>    
     `;
     } else {

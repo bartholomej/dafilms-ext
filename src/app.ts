@@ -16,10 +16,20 @@ class DafilmsExt {
   constructor(private renderer: Renderer) {
     const url = window.location.href.split('/');
     if (url[2].includes('dafilms.cz') && url[3] === 'film') {
-      // const movie: string = document.querySelector('.main-container h1.title').textContent;
+      const csfdLink: string = (document.querySelector(
+        'a[href*="https://www.csfd.cz/film/"]'
+      ) as HTMLAnchorElement)?.href;
+
       const movie = this.getValue('Originální název').split('/')[0];
       const year = this.getValue('Rok');
-      this.getItems(movie, year);
+
+      if (csfdLink) {
+        const csfdParts = csfdLink.split('/');
+        const csfdId = csfdParts[csfdParts.length - 1];
+        this.getMovie(csfdId, movie, year);
+      } else {
+        this.getItems(movie, year);
+      }
     }
   }
 
@@ -35,6 +45,18 @@ class DafilmsExt {
       {
         contentScriptQuery: 'fetchData',
         searchQuery
+      },
+      (response: CSFDMovie) => {
+        this.renderer.renderBox(response, movieName, year);
+      }
+    );
+  }
+
+  private getMovie(csfdId: string, movieName: string, year: string): void {
+    chrome.runtime.sendMessage(
+      {
+        contentScriptQuery: 'fetchMovie',
+        csfdId
       },
       (response: CSFDMovie) => {
         this.renderer.renderBox(response, movieName, year);
