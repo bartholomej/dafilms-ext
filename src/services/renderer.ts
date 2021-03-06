@@ -30,17 +30,17 @@ export default class Renderer {
 
     if (movie) {
       box = `          
-      <a href="${movie.url}" 
-        target="_blank" 
-        title="${movie.title}" 
+      <a href="${movie.url}"
+        target="_blank"
+        title="${movie.title}"
         class="btn btn-success rating rating-${movie.colorRating}">
           ${devFlag} ${_('csfd')} ${movie.rating ? movie.rating : '?'} %
-      </a>    
+      </a>
     `;
     } else {
       box = `
-      <a href="//new.csfd.cz/hledat/?q=${movieName} ${year}" 
-        target="_blank" 
+      <a href="//new.csfd.cz/hledat/?q=${movieName} ${year}"
+        target="_blank"
         class="btn btn-success rating rating-unknown">
           ${devFlag} ${_('csfd')} ${_('search')}
       </a>
@@ -56,6 +56,6 @@ export default class Renderer {
    * Helper for inserting node after some element
    */
   private insertAfter(referenceNode: Element, newNode: HTMLLIElement): void {
-    referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+    referenceNode.parentNode.insertBefore(newNode, referenceNode.previousSibling);
   }
 }
