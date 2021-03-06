@@ -3,10 +3,10 @@
     "message": "Dafilms"
   },
   "appDesc": {
-    "message": "Dafilms extension"
+    "message": "Jednoduché rozšíření pro DAFILMS (Doc Alliance), které do detailu filmu přidává tlačítko s odkazem na hodnocení filmu na webu ČSFD."
   },
   "appContent": {
-    "message": "Simple web extension for DAFILMS (Doc alliance). DAFILMS extension adds a button within each movie detail to show information about ČSFD rating... This is unofficial, experimental, made for fun and it has nothing to do with DAFILMS ❤️ itself"
+    "message": "Jednoduché rozšíření pro DAFILMS (Doc Alliance), které do každého detailu filmu přidává tlačítko s odkazem na hodnocení filmu na webu ČSFD... Rozšíření je neoficiální, experimentální a nemá nic společného se samotnou službou DAFILMS ❤️ ani s ČSFD..."
   },
   "csfd": {
     "message": "ČSFD"
