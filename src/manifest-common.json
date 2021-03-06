@@ -1,0 +1,26 @@
+{
+  "name": "__MSG_appName__",
+  "description": "__MSG_appDesc__",
+  "short_name": "dafilms",
+  "author": "bartholomej",
+  "default_locale": "en",
+  "icons": {
+    "16": "images/icon-16.png",
+    "32": "images/icon-32.png",
+    "48": "images/icon-48.png",
+    "128": "images/icon-128.png"
+  },
+  "permissions": ["https://new.csfd.cz/"],
+  "content_scripts": [
+    {
+      "run_at": "document_end",
+      "matches": ["https://*.dafilms.cz/*"],
+      "css": ["app.css"],
+      "js": ["app.bundle.js"]
+    }
+  ],
+  "background": {
+    "scripts": ["background.bundle.js"]
+  },
+  "manifest_version": 2
+}

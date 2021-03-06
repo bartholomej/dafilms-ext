@@ -1,0 +1,49 @@
+$good-color: #ba0305;
+$average-color: #658db4;
+$bad-color: #535353;
+$unknown-color: #d2d2d2;
+
+.rating {
+  background-color: $unknown-color !important;
+  border-color: $unknown-color !important;
+
+  &-good {
+    background-color: $good-color !important;
+    border-color: $good-color !important;
+
+    &:hover {
+      color: $good-color !important;
+    }
+  }
+
+  &-average {
+    background-color: $average-color !important;
+    border-color: $average-color !important;
+
+    &:hover {
+      color: $average-color !important;
+    }
+  }
+
+  &-bad {
+    background-color: $bad-color !important;
+    border-color: $bad-color !important;
+
+    &:hover {
+      color: $bad-color !important;
+    }
+  }
+
+  &-unknown {
+    background-color: $unknown-color !important;
+    border-color: $unknown-color !important;
+
+    &:hover {
+      color: $unknown-color !important;
+    }
+  }
+
+  &:hover {
+    background: white !important;
+  }
+}
