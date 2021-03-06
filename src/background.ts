@@ -7,13 +7,16 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     csfd
       .search(request.searchQuery)
       .then((response) => {
-        if (response) {
-          return response;
+        const movie = response.movies[0];
+
+        if (movie) {
+          csfd
+            .movie(movie.id)
+            .then((mov) => mov)
+            .then((res) => sendResponse(res));
+        } else {
+          sendResponse(null);
         }
-        throw new Error("Can't connect to movie provider :(");
-      })
-      .then((response) => {
-        sendResponse(response);
       })
       .catch((error) => {
         throw new Error(error);

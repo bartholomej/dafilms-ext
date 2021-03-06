@@ -9,7 +9,7 @@
  * @see https://github.com/bartholomej/dafilms-ext
  */
 
-import { CSFDSearch } from 'node-csfd-api/interfaces/search.interface';
+import { CSFDMovie } from 'node-csfd-api/interfaces/movie.interface';
 import Renderer from './services/renderer';
 
 class DafilmsExt {
@@ -17,7 +17,7 @@ class DafilmsExt {
     const url = window.location.href.split('/');
     if (url[2].includes('dafilms.cz') && url[3] === 'film') {
       // const movie: string = document.querySelector('.main-container h1.title').textContent;
-      const movie = this.getValue('Originální název');
+      const movie = this.getValue('Originální název').split('/')[0];
       const year = this.getValue('Rok');
       this.getItems(movie, year);
     }
@@ -36,12 +36,8 @@ class DafilmsExt {
         contentScriptQuery: 'fetchData',
         searchQuery
       },
-      (response: CSFDSearch) => {
-        if (response) {
-          this.renderer.renderBox(response.movies[0], movieName, year);
-        } else {
-          throw new Error("Can't connect to movie provider :(");
-        }
+      (response: CSFDMovie) => {
+        this.renderer.renderBox(response, movieName, year);
       }
     );
   }
