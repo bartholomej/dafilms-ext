@@ -12,7 +12,7 @@
 ### Automatically (for humans)
 
 - **[Install for Chrome](https://chrome.google.com/webstore/detail/daflims/hgcgneddmgflnbmhkjnefiobjgobbmdm)** from official **Chrome Web Store**
-- Firefox, Opera, Edge ... coming soon
+- **[Install for Firefox](https://addons.mozilla.org/firefox/addon/dafilms/)** from official **Mozilla Addons**
 
 ### Manually (for ~~robots~~ developers)
 
