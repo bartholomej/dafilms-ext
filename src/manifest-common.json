@@ -14,7 +14,7 @@
   "content_scripts": [
     {
       "run_at": "document_end",
-      "matches": ["https://*.dafilms.cz/*"],
+      "matches": ["https://*.dafilms.cz/*", "https://*.dafilms.com/*"],
       "css": ["app.css"],
       "js": ["app.bundle.js"]
     }

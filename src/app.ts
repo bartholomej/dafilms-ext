@@ -11,21 +11,24 @@
 
 import { CSFDMovie } from 'node-csfd-api/interfaces/movie.interface';
 import Renderer from './services/renderer';
+import { getCsfdId, isCzech } from './services/utils';
 
 class DafilmsExt {
   constructor(private renderer: Renderer) {
     const url = window.location.href.split('/');
-    if (url[2].includes('dafilms.cz') && url[3] === 'film') {
+    const domain = url[2];
+    const page = url[3];
+    if (domain.includes('dafilms.') && page === 'film') {
       const csfdLink: string = (document.querySelector(
         'a[href*="https://www.csfd.cz/film/"]'
       ) as HTMLAnchorElement)?.href;
 
-      const movie = this.getValue('Originální název').split('/')[0];
-      const year = this.getValue('Rok');
+      const isCZ = isCzech(domain);
+
+      const { movie, year } = this.getMovieAndYear(isCZ);
 
       if (csfdLink) {
-        const csfdParts = csfdLink.split('/');
-        const csfdId = csfdParts[csfdParts.length - 1];
+        const csfdId = getCsfdId(csfdLink);
         this.getMovie(csfdId, movie, year);
       } else {
         this.getItems(movie, year);
@@ -33,10 +36,22 @@ class DafilmsExt {
     }
   }
 
+  private getMovieAndYear(isCzech: boolean): { movie: string; year: string } {
+    if (isCzech) {
+      const movie = this.getValue('Originální název')?.split('/')[0];
+      const year = this.getValue('Rok');
+      return { movie, year };
+    } else {
+      const movie = this.getValue('Original title')?.split('/')[0];
+      const year = this.getValue('Year');
+      return { movie, year };
+    }
+  }
+
   private getValue(name: string): string {
     const labels: HTMLDivElement[] = Array.from(document.querySelectorAll('.list-details .label'));
     const label = labels.find((x) => x.textContent === name);
-    return label.parentNode.querySelector('.value').textContent;
+    return label?.parentNode.querySelector('.value').textContent;
   }
 
   private getItems(movieName: string, year: string): void {
