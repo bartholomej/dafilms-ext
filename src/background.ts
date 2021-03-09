@@ -1,6 +1,7 @@
 // import { piratebay } from 'piratebay-scraper';
 
 import { csfd } from 'node-csfd-api';
+import { CSFDMovie } from 'node-csfd-api/interfaces/movie.interface';
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   switch (request.contentScriptQuery) {
@@ -11,7 +12,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
           const movie = response.movies[0];
 
           if (movie) {
-            csfd.movie(movie.id).then((res) => sendResponse(res));
+            fetchMovie(movie.id, sendResponse);
           } else {
             sendResponse(null);
           }
@@ -20,9 +21,19 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
           throw new Error(error);
         });
       return true;
-    case 'fetchMovie':
-      csfd.movie(request.csfdId).then((res) => sendResponse(res));
+    case 'getMovie':
+      fetchMovie(request.csfdId, sendResponse);
+      return true;
     default:
       return false;
   }
 });
+
+const fetchMovie = async (id: number, sendResponse: any): Promise<CSFDMovie> => {
+  try {
+    const res = await csfd.movie(id);
+    return sendResponse(res);
+  } catch (error) {
+    throw new Error(error);
+  }
+};

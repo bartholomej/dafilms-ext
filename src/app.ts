@@ -70,7 +70,7 @@ class DafilmsExt {
   private getMovie(csfdId: string, movieName: string, year: string): void {
     chrome.runtime.sendMessage(
       {
-        contentScriptQuery: 'fetchMovie',
+        contentScriptQuery: 'getMovie',
         csfdId
       },
       (response: CSFDMovie) => {
