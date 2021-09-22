@@ -2,6 +2,7 @@ import CopyPlugin from 'copy-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import * as path from 'path';
 import * as webpack from 'webpack';
+import { WebpackPlugin } from './webpack.interface';
 
 // tslint:disable:object-literal-sort-keys
 export const commonConfig: webpack.Configuration = {
@@ -21,10 +22,10 @@ export const commonConfig: webpack.Configuration = {
   module: {
     rules: [
       // all files with a `.ts` or `.tsx` extension will be handled by `ts-loader`
-      { 
-        test: /\.tsx?$/, 
-        loader: "ts-loader" 
-      },    
+      {
+        test: /\.tsx?$/,
+        loader: "ts-loader"
+      },
       {
         test: /\.s?css$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader']
@@ -54,6 +55,6 @@ export const commonConfig: webpack.Configuration = {
         { from: 'src/_locales/', to: '_locales' },
         { from: 'src/images/', to: 'images' }
       ]
-    })
+    }) as WebpackPlugin
   ]
 };

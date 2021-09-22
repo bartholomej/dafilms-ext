@@ -33,7 +33,7 @@ const fetchMovie = async (id: number, sendResponse: any): Promise<CSFDMovie> => 
   try {
     const res = await csfd.movie(id);
     return sendResponse(res);
-  } catch (error) {
+  } catch (error: any) {
     throw new Error(error);
   }
 };

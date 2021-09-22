@@ -4,6 +4,10 @@ export interface WebpackOptions {
   target: Browser;
 }
 
+export interface WebpackPlugin {
+  apply(...args: any[]): void;
+}
+
 export interface BrowserProps {
   update_url?: string;
   applications?: {

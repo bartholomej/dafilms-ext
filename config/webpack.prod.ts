@@ -4,7 +4,7 @@ import { merge } from 'webpack-merge';
 import ZipPlugin from 'zip-webpack-plugin';
 import browserConfig from './browsers.manifest.json';
 import { commonConfig } from './webpack.common';
-import { BrowserProps, WebpackOptions } from './webpack.interface';
+import { BrowserProps, WebpackOptions, WebpackPlugin } from './webpack.interface';
 
 const version = process.env.npm_package_version;
 
@@ -22,6 +22,12 @@ export default (options: WebpackOptions) => {
     optimization: {
       minimize: false
     },
+    performance: {
+      hints: 'warning',
+      maxEntrypointSize: 512000,
+      maxAssetSize: 512000,
+    },
+    devtool: false,
     plugins: [
       new webpack.DefinePlugin({
         // Set variable to find out what browser is compiled
@@ -40,7 +46,7 @@ export default (options: WebpackOptions) => {
             }
           }
         ]
-      }),
+      }) as WebpackPlugin,
       new ZipPlugin({
         // OPTIONAL: defaults to the Webpack output path (above)
         // can be relative (to Webpack output path) or absolute
