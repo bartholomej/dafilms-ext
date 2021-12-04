@@ -10,17 +10,26 @@
     "48": "images/icon-48.png",
     "128": "images/icon-128.png"
   },
-  "permissions": ["https://www.csfd.cz/"],
+  "host_permissions": [
+    "https://www.csfd.cz/"
+  ],
   "content_scripts": [
     {
       "run_at": "document_end",
-      "matches": ["https://*.dafilms.cz/*", "https://*.dafilms.com/*"],
-      "css": ["app.css"],
-      "js": ["app.bundle.js"]
+      "matches": [
+        "https://*.dafilms.cz/*",
+        "https://*.dafilms.com/*"
+      ],
+      "css": [
+        "app.css"
+      ],
+      "js": [
+        "app.bundle.js"
+      ]
     }
   ],
   "background": {
-    "scripts": ["background.bundle.js"]
+    "service_worker": "background.bundle.js"
   },
-  "manifest_version": 2
+  "manifest_version": 3
 }
