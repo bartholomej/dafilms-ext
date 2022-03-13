@@ -1,5 +1,3 @@
-// import { piratebay } from 'piratebay-scraper';
-
 import { csfd } from 'node-csfd-api';
 import { CSFDMovie } from 'node-csfd-api/interfaces/movie.interface';
 
