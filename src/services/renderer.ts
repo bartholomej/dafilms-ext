@@ -8,7 +8,7 @@
  * @see https://github.com/bartholomej/dafilms-ext
  */
 
-import { CSFDMovie } from 'node-csfd-api/interfaces/movie.interface';
+import { CSFDMovie } from 'node-csfd-api/types/interfaces/movie.interface';
 import { Browser } from '../interfaces/interfaces';
 import { isDev } from './utils';
 

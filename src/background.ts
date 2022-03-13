@@ -1,5 +1,5 @@
 import { csfd } from 'node-csfd-api';
-import { CSFDMovie } from 'node-csfd-api/interfaces/movie.interface';
+import { CSFDMovie } from 'node-csfd-api/types/interfaces/movie.interface';
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   switch (request.contentScriptQuery) {

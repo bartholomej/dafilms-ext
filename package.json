@@ -30,7 +30,7 @@
   },
   "homepage": "https://github.com/bartholomej/dafilms-ext#readme",
   "dependencies": {
-    "node-csfd-api": "^2.3.0"
+    "node-csfd-api": "^2.4.0-next.0"
   },
   "devDependencies": {
     "@types/chrome": "0.0.179",

@@ -9,7 +9,7 @@
  * @see https://github.com/bartholomej/dafilms-ext
  */
 
-import { CSFDMovie } from 'node-csfd-api/interfaces/movie.interface';
+import { CSFDMovie } from 'node-csfd-api/types/interfaces/movie.interface';
 import Renderer from './services/renderer';
 import { getCsfdId, isCzech } from './services/utils';
 
@@ -24,7 +24,6 @@ class DafilmsExt {
       ) as HTMLAnchorElement)?.href;
 
       const isCZ = isCzech(domain);
-
       const { movie, year } = this.getMovieAndYear(isCZ);
 
       if (csfdLink) {
