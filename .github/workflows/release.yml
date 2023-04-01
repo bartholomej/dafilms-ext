@@ -1,17 +1,26 @@
-name: Node CI
+name: Release Chrome Web Store
 
-on: [push]
+on:
+  push:
+    tags:
+      - v*.*.*
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
+
       - name: Use Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18.x
+
+      # - name: Get the version tag
+      #   id: get_version
+      #   run: echo ::set-output name=VERSION::${GITHUB_REF/refs\/tags\//}
 
       - uses: pnpm/action-setup@v2
         name: Install pnpm
@@ -39,5 +48,16 @@ jobs:
 
       - name: Build
         run: pnpm build
+        env:
+          CI: true
+
+      - name: Deploy to Chrome Web Store
+        uses: trmcnvn/chrome-addon@v2
+        with:
+          extension: hgcgneddmgflnbmhkjnefiobjgobbmdm
+          zip: zip/chrome.zip
+          client-id: ${{ secrets.CHROME_CLIENT_ID }}
+          client-secret: ${{ secrets.CHROME_CLIENT_SECRET }}
+          refresh-token: ${{ secrets.CHROME_REFRESH_TOKEN }}
         env:
           CI: true

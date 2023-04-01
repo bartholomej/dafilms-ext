@@ -58,7 +58,7 @@ If this project have helped you save time please consider [making a donation](ht
 
 ## License
 
-Copyright &copy; 2021 [Bartholomej](http://github.com/bartholomej)
+Copyright &copy; 2023 [Bartholomej](http://github.com/bartholomej)
 
 Proudly powered by nature 🗻, wind 💨, tea 🍵 and beer 🍺 ;)
 

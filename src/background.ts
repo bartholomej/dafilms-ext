@@ -3,12 +3,11 @@ import { CSFDMovie } from 'node-csfd-api/types/interfaces/movie.interface';
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   switch (request.contentScriptQuery) {
-    case 'fetchData':
+    case 'getSearchMovie':
       csfd
         .search(request.searchQuery)
         .then((response) => {
-          const movie = response.movies[0];
-
+          const movie = response.movies[0] || null;
           if (movie) {
             fetchMovie(movie.id, sendResponse);
           } else {
